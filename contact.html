@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Zorra Social — Get in Touch</title>
+  <meta name="description" content="Get in touch with Zorra Social. Fill out our simple contact form and we'll get back to you within 24 hours with a plan tailored to your business.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon_io/favicon.ico">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="favicon_io/android-chrome-192x192.png" alt="Zorra Social" class="logo-img">
+        <span class="logo-text">Zorra Social</span>
+      </a>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="how-it-works.html" class="nav-link">How it Works</a></li>
+        </ul>
+        <div class="nav-cta-mobile">
+          <a href="contact.html" class="btn btn-primary nav-contact-active">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary nav-btn-desktop nav-contact-active">Contact Us</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTACT FORM SECTION -->
+  <section class="contact-section" style="background-color: transparent;">
+    <div class="container animate-on-scroll">
+      <div class="contact-card-wrapper">
+        <div class="contact-header center">
+          <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 12px;">Let's Get Your Business Online</h1>
+          <p>Fill in your details and we'll get back to you within 24 hours.</p>
+        </div>
+
+        <!-- Dynamic Selected Plan Indicator Banner -->
+        <div class="selected-plan-banner" id="selectedPlanBanner" style="display: none;">
+          <span>Interested in: <strong id="selectedPlanName">Standard Plan</strong></span>
+          <button type="button" class="clear-plan-btn" id="clearPlanBtn" aria-label="Clear selected plan">&times;</button>
+        </div>
+
+        <div class="contact-form-container">
+          <!--
+            FORM BACKEND INTEGRATION NOTE:
+            To connect to a backend service like Formspree or Google Forms:
+            Replace action="#" with your endpoint URL (e.g., action="https://formspree.io/f/your_form_id")
+            and set method="POST".
+          -->
+          <form class="contact-form" id="contactForm" action="#" method="POST" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="req">*</span></label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Rahul Sharma" required>
+                <span class="field-error" id="fullNameError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="businessName">Business Name <span class="req">*</span></label>
+                <input type="text" id="businessName" name="businessName" placeholder="e.g. Urban Cafe / Fit Gym" required>
+                <span class="field-error" id="businessNameError"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="e.g. rahul@example.com" required>
+                <span class="field-error" id="emailError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. 9876543210" required>
+                <span class="field-error" id="phoneError"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="businessType">Business Type <span class="req">*</span></label>
+                <select id="businessType" name="businessType" required>
+                  <option value="" disabled selected>Select your business type</option>
+                  <option value="Restaurant/Cafe">Restaurant / Cafe</option>
+                  <option value="Gym/Fitness">Gym / Fitness Center</option>
+                  <option value="Clinic">Clinic / Healthcare</option>
+                  <option value="Coaching/Classes">Coaching / Classes</option>
+                  <option value="Clothing Store">Clothing / Retail Store</option>
+                  <option value="Other">Other Local Business</option>
+                </select>
+                <span class="field-error" id="businessTypeError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="interestedPlan">Interested Plan</label>
+                <select id="interestedPlan" name="interestedPlan">
+                  <option value="Not Sure Yet">Not Sure Yet</option>
+                  <option value="Basic">Basic (₹3,000–₹5,000/mo)</option>
+                  <option value="Standard">Standard (₹8,000–₹15,000/mo)</option>
+                  <option value="Premium">Premium (₹20,000+/mo)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message / What do you need help with? <span class="optional">(Optional)</span></label>
+              <textarea id="message" name="message" rows="3" placeholder="Tell us a little about your business or specific requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full btn-large" id="submitBtn">Send Details</button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="favicon_io/android-chrome-192x192.png" alt="Zorra Social" class="logo-img">
+          <span class="logo-text">Zorra Social</span>
+        </a>
+        <p class="footer-tagline">Zorra Social — Social media, handled.</p>
+      </div>
+      <div class="footer-socials">
+        <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <span class="footer-divider">•</span>
+        <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <span class="footer-divider">•</span>
+        <a href="mailto:contact@zorrasocial.com">Email</a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Zorra Social. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
